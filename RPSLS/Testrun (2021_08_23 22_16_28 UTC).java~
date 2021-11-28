@@ -1,0 +1,341 @@
+//Testrun
+import java.util.ArrayList;
+public class Testrun implements RPSLSStrategy {
+  private int oppLast, oppPrev;
+  ArrayList <Integer> list = new ArrayList<Integer>();
+  ArrayList <Integer> throwList = new ArrayList<Integer>();
+  private int i = (0-1);
+  private int h;
+  private int difference;
+  private int first = 3;
+  private int counter = 0;
+  private int random;
+  private boolean turn = false;
+  public String strategyName() 
+  {
+    return "L";
+  }
+  public String coderName() 
+  {
+    return "Albert";
+  }
+  public int getThrow() 
+  {
+   
+    if(turn == false)
+    {
+    if(i==23)
+    {
+      i = (0-1);
+    }
+    while (i< 23)
+    {
+      i++;
+      return throwList.get(i);
+    }
+    if(list.size() <23)
+    {
+      h = oppLast;
+    }
+    
+    return h;
+    }
+    else
+    {
+//      System.out.print("f");
+      if(i==difference)
+    {
+      i = (0-1);
+    }
+    while (i< difference)
+    {
+      i++;
+      return throwList.get(i);
+    }
+    if(list.size() <difference)
+    {
+      h = oppLast;
+    }
+    return h;
+    }
+  }
+  public void opponentsLastThrow(int lastThrow) 
+  {
+    oppLast = lastThrow;
+    if(turn == false)
+    {
+      if(counter<23)
+      {
+        list.add(oppLast);
+        counter++;
+      }
+      if(counter == 23)
+      {
+        counter =0;
+      }
+      
+      if (list.size()==23)
+      {
+        random = (int)((Math.random()*4) +1);
+      }
+      
+      if(random==1)
+      { 
+        for(int f = 0; f<23;f++)
+        {
+          if(list.get(f)==0)
+          {
+            throwList.add(1);
+          }
+          if(list.get(f)==1)
+          {
+            throwList.add(2);
+          }
+          if(list.get(f)==2)
+          {
+            throwList.add(0);
+          }
+          if(list.get(f)==3)
+          {
+            throwList.add(0);
+          }
+          if(list.get(f)==4)
+          {
+            throwList.add(1);
+          }
+        }
+      }
+      if(random==2)
+      {
+        for(int f = 0; f<list.size();f++)
+        {
+          if(list.get(f)==0)
+          {
+            throwList.add(4);
+          }
+          if(list.get(f)==1)
+          {
+            throwList.add(3);
+          }
+          if(list.get(f)==2)
+          {
+            throwList.add(0);
+          }
+          if(list.get(f)==3)
+          {
+            throwList.add(2);
+          }
+          if(list.get(f)==4)
+          {
+            throwList.add(3);
+          }
+        }
+      }
+
+      if(random==3)
+      {
+        for(int f = 0; f<list.size();f++)
+        {
+          if(list.get(f)==0)
+          {
+            throwList.add(1);
+          }
+          if(list.get(f)==1)
+          {
+            throwList.add(2);
+          }
+          if(list.get(f)==2)
+          {
+            throwList.add(4);
+          }
+          if(list.get(f)==3)
+          {
+            throwList.add(2);
+          }
+          if(list.get(f)==4)
+          {
+            throwList.add(3);
+          }
+        }
+      }
+      if(random==4)
+      {
+        for(int f = 0; f<list.size();f++)
+        {
+          if(list.get(f)==0)
+          {
+            throwList.add(4);
+          }
+          if(list.get(f)==1)
+          {
+            throwList.add(3);
+          }
+          if(list.get(f)==2)
+          {
+            throwList.add(4);
+          }
+          if(list.get(f)==3)
+          {
+            throwList.add(0);
+          }
+          if(list.get(f)==4)
+          {
+            throwList.add(1);
+          }
+        }
+      }
+      for (int u = 0; u<list.size();u++)
+      {
+        if (list.get(u) == first)
+        {
+          difference = u;
+        }
+      }
+      if(list.size() == 23)
+      {
+        list.clear();
+      }
+      turn = true;
+    }
+//    else 
+//    {
+//      if(counter<difference)
+//      {
+//        list.add(oppLast);
+//        counter++;
+//      }
+//      if(counter == difference)
+//      {
+//        counter =0;
+//      }
+//      
+//      if (list.size()==difference)
+//      {
+//        random = (int)((Math.random()*4) +1);
+//      }
+//      
+//      if(random==1)
+//      { 
+//        for(int f = 0; f<list.size();f++)
+//        {
+//          if(list.get(f)==0)
+//          {
+//            throwList.add(1);
+//          }
+//          if(list.get(f)==1)
+//          {
+//            throwList.add(2);
+//          }
+//          if(list.get(f)==2)
+//          {
+//            throwList.add(0);
+//          }
+//          if(list.get(f)==3)
+//          {
+//            throwList.add(0);
+//          }
+//          if(list.get(f)==4)
+//          {
+//            throwList.add(1);
+//          }
+//        }
+//      }
+//      if(random==2)
+//      {
+//        for(int f = 0; f<list.size();f++)
+//        {
+//          if(list.get(f)==0)
+//          {
+//            throwList.add(4);
+//          }
+//          if(list.get(f)==1)
+//          {
+//            throwList.add(3);
+//          }
+//          if(list.get(f)==2)
+//          {
+//            throwList.add(0);
+//          }
+//          if(list.get(f)==3)
+//          {
+//            throwList.add(2);
+//          }
+//          if(list.get(f)==4)
+//          {
+//            throwList.add(3);
+//          }
+//        }
+//      }
+//
+//      if(random==3)
+//      {
+//        for(int f = 0; f<list.size();f++)
+//        {
+//          if(list.get(f)==0)
+//          {
+//            throwList.add(1);
+//          }
+//          if(list.get(f)==1)
+//          {
+//            throwList.add(2);
+//          }
+//          if(list.get(f)==2)
+//          {
+//            throwList.add(4);
+//          }
+//          if(list.get(f)==3)
+//          {
+//            throwList.add(2);
+//          }
+//          if(list.get(f)==4)
+//          {
+//            throwList.add(3);
+//          }
+//        }
+//      }
+//      if(random==4)
+//      {
+//        for(int f = 0; f<list.size();f++)
+//        {
+//          if(list.get(f)==0)
+//          {
+//            throwList.add(4);
+//          }
+//          if(list.get(f)==1)
+//          {
+//            throwList.add(3);
+//          }
+//          if(list.get(f)==2)
+//          {
+//            throwList.add(4);
+//          }
+//          if(list.get(f)==3)
+//          {
+//            throwList.add(0);
+//          }
+//          if(list.get(f)==4)
+//          {
+//            throwList.add(1);
+//          }
+//        }
+//      }
+//      for (int u = 0; u<list.size();u++)
+//      {
+//        if (list.get(u) == first)
+//        {
+//          difference = u +1;
+//          System.out.print("\ndifferece: " + difference);
+//        }
+//      }
+//      if(list.size() == difference)
+//      {
+//        list.clear();
+//      }
+//    }
+  }
+  public void reset() 
+  {
+    
+    
+  }
+}

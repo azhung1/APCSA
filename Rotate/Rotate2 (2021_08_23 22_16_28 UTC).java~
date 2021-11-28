@@ -1,0 +1,55 @@
+//Rotate2//Rotate
+//Albert Hung
+import java.util.Scanner;
+public class Rotate2
+{ 
+  public static void main(String[] args) 
+  {
+    int row, column;
+    String h = "";
+    Scanner scan = new Scanner(System.in);
+    System.out.print("What is the row of your matrix?");
+    row = scan.nextInt();
+    System.out.print("What is the column of your matrix?");
+    column = scan.nextInt();
+    int arr[][] = new int [row][column]; 
+    for (int b = 0;b<row*column;b++)
+    {
+      int row1 = 0;
+      int column1 = 0;
+      System.out.print( "What is your desired input?");
+      int input = scan.nextInt();
+      arr[row1][column1] = input;
+      h+= Integer.toString(input);
+      row1++;
+      column1++;
+    }
+//    System.out.print(rotate(arr, 90));
+//  }
+//  public static int [][] rotate (int [][] arr, int degree)
+//  {
+//    if(degree == 90)
+//    {
+    int i,j, length, length2;
+    length = arr.length;
+    length2 = arr[0].length;
+    int [][] arr1 = new int [length2][length];
+    
+    for (i = arr.length;i>0;i--)
+    {
+      for(j = 0; j<arr[i].length;j++)
+      {
+        if(j<arr[i].length)
+        {
+          arr1[j][arr.length-1-i] =arr[i][j] ;
+          System.out.println("hi");
+        }
+        
+      }
+    }
+ 
+  }
+//    else if(degree == 180)
+//    {
+//    }
+  }
