@@ -1,0 +1,110 @@
+//Pawn
+public class Pawn extends Piece
+{
+  public Pawn(boolean w, Board n)
+  {
+    super.Piece(w, n);
+  }
+  public Pawn(boolean f, Board n, Location p)
+  {
+    super.Piece(f, n, p);
+  }
+  public boolean move(Location f)
+  {
+    int moveR = f.getRow();
+    int moveC = f.getCol();
+    Location original = this.myLocation();
+    int r = original.getRow();
+    int c = original.getCol();
+    Boolean occupied = false;
+    if(moveC == c)
+    {
+      if(this.isWhite() == true)
+      {
+        if(r == 6)
+        {
+          if(Math.abs(moveR - r)==2)
+          {
+
+            if(myBoard.isEmpty(new Location(moveR,c))==true)
+            {
+     
+              if(myBoard.isEmpty(new Location(moveR+1,c))==true)
+              {
+                return true;
+              }
+            }
+          }
+          if(Math.abs(moveR - r)==1)
+          {
+            if(myBoard.isEmpty(new Location(moveR,c))==true)
+            {
+              return true;
+            }
+          }
+        }
+        else
+        {
+          if(myBoard.isEmpty(new Location(moveR,c))==true)
+          {
+            if(Math.abs(moveR - r)==1)
+            {
+              return true;
+            }
+          }
+        }
+      }
+      else
+      {
+        if(r == 1)
+        {
+          if(Math.abs(moveR - r)==2)
+          {
+            if(myBoard.isEmpty(new Location(moveR,c))==true)
+            {
+              if(myBoard.isEmpty(new Location(moveR-1,c))==true)
+              {
+                return true;
+              }
+            }
+          }
+            if(Math.abs(moveR - r)==1)
+          {
+            if(myBoard.isEmpty(new Location(moveR,c))==true)
+            {
+              return true;
+            }
+          }
+        }
+        else
+        {
+          if(myBoard.isEmpty(new Location(moveR,c))==true)
+          {
+            if(Math.abs(moveR - r)==1)
+            {
+              return true;
+            }
+          }
+        }
+      }
+    }
+     if(moveC == c - 1|| moveC == c + 1)
+     {
+       if(myBoard.getPiece(f) != null)
+       {
+       if(this.isWhite() != myBoard.getPiece(f).isWhite())
+       {
+         return true;
+       }
+       }
+     }
+    return false;
+  }
+  public String toString()
+  {
+    String results ="p";
+    if(this.isWhite() == false)
+      results = results.toUpperCase();
+    return results;
+  }
+}
